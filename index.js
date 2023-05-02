@@ -11,9 +11,6 @@ const bodyParser = require("body-parser")
 const fileUpload = require("express-fileupload")
 const cors = require("cors")
 const path = require("path")
-const url = require('url')
-// const __filename = url.fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
 
 process.on("uncaughtException", (err) => {
     console.log(`Error: ${err.message}`)
