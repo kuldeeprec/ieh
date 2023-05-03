@@ -47,20 +47,13 @@ app.use('/api/v1', orderRouters)
 
 app.use(ErroThrow)
 
+console.log((path.resolve(__dirname, 'client', 'build')))
+app.get('/', (req, res) => {
+    app.use(express.static(path.resolve(__dirname, 'client', 'build')))
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+})
 
-app.use(express.static(path.join(__dirname, "./client/build")));
-
-console.log(path.join(__dirname, "./client/build/index.html"))
-app.get("*", function (req, res) {
-    res.sendFile(
-        path.join(__dirname, "./client/build/index.html"),
-        function (err) {
-            res.status(500).send(err);
-        }
-    );
-});
-
-app.get('/', (req, res) => res.json({ message: 'Welcome to our API' }))
+// app.get('/', (req, res) => res.json({ message: 'Welcome to our API' }))
 app.use((req, res) => res.status(404).json({ success: false, message: 'Not Found' }))
 
 connectDatabase(process.env.MONGODB_CONNECT)
