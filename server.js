@@ -1,15 +1,14 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const connectDatabase = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_CONNECT);
-        console.log(`Server Running On ${mongoose.connection.host}`);
-    } catch (error) {
-        console.log(`${error}`);
-    }
-}
-
-
+  try {
+    await mongoose.connect(process.env.MONGODB_CONNECT);
+    console.log(process.env.MONGODB_CONNECT);
+    console.log(`Server Running On ${mongoose.connection.host}`);
+  } catch (error) {
+    console.log(`${error}`);
+  }
+};
 
 // export const connectDatabase = async (Url) => {
 
@@ -22,5 +21,4 @@ const connectDatabase = async () => {
 //     }
 // }
 
-
-module.exports = connectDatabase
+module.exports = connectDatabase;
