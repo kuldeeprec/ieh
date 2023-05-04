@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { deleteUser, forgotPassword, getAllUsers, getSingleUser, getUserDetails, logOut, loginUser, registerUser, updatePassword, updateProfile, updateUserRole } = require("../controllers/userController.js")
+const { deleteUser, getAllUsers, getSingleUser, getUserDetails, logOut, loginUser, registerUser, updatePassword, updateProfile, updateUserRole } = require("../controllers/userController.js")
 const { authorizeroles, isAuthentication } = require("../middleware/authentication.js")
 
 
@@ -12,7 +12,7 @@ UserRouters.post('/register', registerUser);
 
 UserRouters.post('/login', loginUser);
 
-UserRouters.post('/password/forgot', forgotPassword)
+// UserRouters.post('/password/forgot', forgotPassword)
 
 UserRouters.get('/logout', logOut)
 
